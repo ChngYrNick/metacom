@@ -5,13 +5,7 @@ const CALL_TIMEOUT = 7 * 1000;
 const PING_INTERVAL = 60 * 1000;
 const RECONNECT_TIMEOUT = 2 * 1000;
 
-const connections = new Set();
-
-window.addEventListener('online', () => {
-  for (const connection of connections) {
-    if (!connection.connected) connection.open();
-  }
-});
+export const connections = new Set();
 
 class MetacomError extends Error {
   constructor({ message, code }) {
